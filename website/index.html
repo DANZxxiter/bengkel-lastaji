@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bengkel Lastaji - Jasa las, cat, permak mobil terbaik di [Kota].">
+  <meta name="keywords" content="bengkel las [kota], cat mobil [kota], permak mobil [kota]">
+  <title>Bengkel Lastaji</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    /* Reset default margin dan padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7fafc;
+    }
+    .slider { position: relative; overflow: hidden; height: 500px; }
+    .slides { display: flex; width: 300%; transition: transform 0.5s ease; }
+    .slide { width: 33.33%; }
+    .slide img { width: 100%; height: 500px; object-fit: cover; }
+    .whatsapp-sticky {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    /* Kontak Section Fix */
+    #kontak {
+      padding: 0 1rem;
+    }
+    #kontak .max-w-lg {
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    #kontak .map-container {
+      position: relative;
+      padding-bottom: 56.25%; /* Rasio 16:9 */
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    #kontak .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    /* Atur container global */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+    /* Animasi Tambahan */
+    .fade-up { animation: fadeUp 1s ease-out; }
+    .fade-right { animation: fadeRight 1s ease-out; }
+    .fade-left { animation: fadeLeft 1s ease-out; }
+    .zoom-in { animation: zoomIn 1s ease-out; }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeRight {
+      0% { opacity: 0; transform: translateX(-20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeLeft {
+      0% { opacity: 0; transform: translateX(20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes zoomIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    /* Responsivitas */
+    @media (max-width: 640px) {
+      .slider { height: 250px; }
+      .slide img { height: 250px; }
+      video, img { height: 200px; }
+      #kontak .map-container {
+        padding-bottom: 75%; /* Sesuaikan rasio untuk HP */
+      }
+      .container { padding: 0 0.5rem; }
+    }
+    /* Hapus overflow berlebih */
+    section {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-poppins">
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white p-4 sticky top-0 shadow-lg z-50" data-aos="zoom-in">
+    <div class="container flex justify-start items-center">
+      <div class="flex items-center">
+        <img src="images/logo.png" alt="Logo Lastaji" class="h-10 mr-2" data-aos="fade-right">
+        <h1 class="text-xl font-bold" data-aos="fade-left">Bengkel Lastaji</h1>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="slider">
+    <div class="slides" id="slides">
+      <div class="slide"><img src="images/home/bengkel1.jpg" alt="Bengkel" class="w-full h-full object-cover" data-aos="zoom-in"></div>
+      <div class="slide"><img src="images/home/bengkel2.jpg" alt="Mobil 1" class="w-full h-full object-cover" data-aos="zoom-in"></div>
+      <div class="slide"><img src="images/home/bengkel3.jpg" alt="Mobil 2" class="w-full h-full object-cover" data-aos="zoom-in"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-50">
+      <div data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up" data-aos-delay="200">Bengkel Lastaji</h1>
+        <p class="text-lg md:text-xl mb-6" data-aos="fade-up" data-aos-delay="400">Kualitas Las, Cat, dan Permak Mobil Terbaik di Kota Pati</p>
+        <a href="#kontak" class="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition" data-aos="fade-up" data-aos-delay="600">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Kami Section -->
+  <section id="tentang-kami" class="py-12 bg-white">
+    <div class="container">
+      <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Tentang Kami</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div data-aos="fade-right">
+          <p class="text-gray-600 mb-4">Bengkel Lastaji didirikan sejak 2003, berpengalaman lebih dari 10 tahun dalam jasa las, cat, dan modifikasi mobil. Kami berkomitmen memberikan hasil terbaik dengan tim ahli bersertifikat dan berpengalaman.</p>
+          <p class="text-gray-600">Visi kami: Menjadi bengkel terpercaya di Pati dengan standar kualitas internasional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni Section -->
+  <section class="py-12 bg-gray-200">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Apa Kata Pelanggan</h2>
+      <div class="swiper mySwiperTestimoni relative max-w-2xl mx-auto h-40" data-aos="zoom-in">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide testimonial-slide flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-yellow-500 text-xl mb-2">★★★★☆</p>
+            <p class="italic mb-2">"Pelayanan Lumayan, hasil juga memuaskan"</p>
+            <p class="font-semibold">- Pak Firdaus, Pati Kota</p>
+          </div>
+          <div class="swiper-slide testimonial-slide flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-yellow-500 text-xl mb-2">★★★★☆</p>
+            <p class="italic mb-2">"Hasil presisi, bahan juga oke😊"</p>
+            <p class="font-semibold">- Pak Hendra, Blora</p>
+          </div>
+          <div class="swiper-slide testimonial-slide flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-yellow-500 text-xl mb-2">★★★★★</p>
+            <p class="italic mb-2">"Pengerjaan tepat waktu, mantap pokoknya."</p>
+            <p class="font-semibold">- Pak Andi, Sumber Jaken</p>
+          </div>
+          <div class="swiper-slide testimonial-slide flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-yellow-500 text-xl mb-2">★★★★☆</p>
+            <p class="italic mb-2">"Cocok di harga, cocok di kualitas 👍"</p>
+            <p class="font-semibold">- Pak Purnomo, Jaken</p>
+          </div>
+          <div class="swiper-slide testimonial-slide flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-yellow-500 text-xl mb-2">★★★★★</p>
+            <p class="italic mb-2">"Hasil las rapat, juga rapi. Langganan pokoknya"</p>
+            <p class="font-semibold">- Pak Agus, Jaken</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layanan Section -->
+  <section id="layanan" class="py-12 bg-white">
+    <div class="container">
+      <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Layanan Kami</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-aos="fade-right">
+          <i class="fas fa-tools text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2" data-aos="fade-up">Las & Welder</h3>
+          <p class="mb-2" data-aos="fade-up" data-aos-delay="200">Jasa pembuatan kanopi,pagar,dan sejenisnya mengunakan bahan berkwalitas yang tentunya Teruji.</p>
+          <p class="text-gray-600 mb-2" data-aos="fade-up" data-aos-delay="400"><strong>Harga Sekitar:</strong> Rp1.000.000 - Rp4.000.000 (tergantung ukuran)</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-aos="fade-up">
+          <i class="fas fa-paint-roller text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2" data-aos="fade-up">Cat Mobil</h3>
+          <p class="mb-2" data-aos="fade-up" data-aos-delay="200">Cat ulang mobil dengan warna tahan lama dan finishing halus.</p>
+          <p class="text-gray-600 mb-2" data-aos="fade-up" data-aos-delay="400"><strong>Harga Sekitar:</strong> Rp900.000 - Rp2.000.000 (tergantung area)</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-aos="fade-left">
+          <i class="fas fa-car text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2" data-aos="fade-up">Ketok Megic</h3>
+          <p class="mb-2" data-aos="fade-up" data-aos-delay="200">Ketok magic adalah metode perbaikan bodi mobil yang bertujuan untuk menghilangkan penyok atau kerusakan ringan pada bodi mobil tanpa perlu pengecatan ulang..</p>
+          <p class="text-gray-600 mb-2" data-aos="fade-up" data-aos-delay="400"><strong>Harga Sekitar:</strong> Rp600.000 - Rp2.000.000+ (tergantung area)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hasil Kami Section (Swiper Carousel) -->
+  <section id="galeri-kerja-kami" class="py-12 bg-gray-200">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Galeri Kerja Kami</h2>
+      <div class="swiper mySwiper rounded-lg shadow-lg" data-aos="zoom-in">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri1.jpg" alt="Galeri 1" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri2.jpg" alt="Galeri 2" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri3.jpg" alt="Galeri 3" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri4.jpg" alt="Galeri 4" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri5.jpg" alt="Galeri 5" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri6.jpg" alt="Galeri 6" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri7.jpg" alt="Galeri 7" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri8.jpg" alt="Galeri 8" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri9.jpg" alt="Galeri 9" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/galeri/Galeri10.jpg" alt="Galeri 10" class="w-full h-64 object-cover rounded-lg" />
+          </div>
+        </div>
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Kontak Section -->
+  <section id="kontak" class="py-12 bg-gray-800 text-white">
+    <div class="container">
+      <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Hubungi Kami</h2>
+      <div class="max-w-lg mx-auto p-6 bg-white text-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
+        <p class="mb-4" data-aos="fade-up"><i class="fas fa-phone mr-2"></i> 0851-8396-1472</p>
+        <p class="mb-4" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-map-marker-alt mr-2"></i> BENGKEL TAJI LAS JAKEN, Taunan, Tegalarum, Kec. Jaken, Kabupaten Pati, Jawa Tengah 59184</p>
+        <div class="map-container" data-aos="fade-up" data-aos-delay="400">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.464664929999!2d111.2147849!3d-6.7747708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e772e21b6b12c7f%3A0x2877bd1d75073230!2sBENGKEL%20TAJI%20LAS%20JAKEN!5e0!3m2!1sid!2sid!4v1721896369137!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a href="https://wa.me/6285183961472" target="_blank" class="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition w-full text-center block" data-aos="fade-up" data-aos-delay="600">Chat via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="container text-center p-6" data-aos="fade-up">
+      <p> © 2025 Bengkel Lastaji. All rights reserved.</p>
+     <div class="mt-4 space-x-4">
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/YourPage" target="_blank" class="hover:text-red-500" data-aos="fade-right">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/YourUsername" target="_blank" class="hover:text-red-500" data-aos="fade-up">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/6285183961472" target="_blank" class="hover:text-red-500" data-aos="fade-left">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+  <div class="whatsapp-sticky" data-aos="zoom-in">
+    <a href="https://wa.me/6285183961472" target="_blank" aria-label="Hubungi via WhatsApp" class="bg-green-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.81 11.81 0 0 0 12 0C5.37 0 0 5.37 0 12a11.94 11.94 0 0 0 1.64 6.02L0 24l6.26-1.64A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.18-1.24-6.16-3.48-8.52zM12 22c-1.89 0-3.71-.5-5.3-1.44l-.38-.22-3.72.97.99-3.63-.24-.37A9.99 9.99 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.19 1.04 7.07 2.93A10 10 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.41-7.55c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.1 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.08-.13-.28-.21-.58-.36z" />
+      </svg>
+    </a>
+  </div>
+  <!-- JavaScript for Slider -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementById('slides');
+    function autoSlide() {
+      slideIndex++;
+      if (slideIndex >= 3) slideIndex = 0;
+      slides.style.transform = `translateX(-${slideIndex * 33.33}%)`;
+      slides.style.transition = 'transform 1s ease'; // Animasi halus
+    }
+    autoSlide(); // Tampilkan slide pertama
+    setInterval(autoSlide, 3000); // Ganti setiap 3 detik
+  </script>
+
+  <!-- SwiperJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiperTestimoni = new Swiper(".mySwiperTestimoni", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+    const swiperGaleri = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>
